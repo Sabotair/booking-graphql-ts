@@ -1,0 +1,10 @@
+.select__item select {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 3px;
+  width: 150px;
+}
+.select__inner {
+  max-width: 600px;
+  margin-left: 150px;
+}

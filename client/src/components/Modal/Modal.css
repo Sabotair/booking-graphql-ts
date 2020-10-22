@@ -1,0 +1,89 @@
+.modal {
+  font-family: Comic Sans MS;
+  font-size: 1rem;
+}
+
+h1 {
+  text-align: center;
+  color: orangered;
+  font-size: 2rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+  display: block;
+  margin: 10px auto;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(145, 142, 142, 0.9);
+  padding: 3rem;
+  overflow: auto;
+}
+
+.modal .modal-content {
+  background-color: burlywood;
+  padding: 1rem;
+  width: 399px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 70px auto;
+  border-radius: 40px;
+  height: auto;
+}
+
+.modal-content img {
+  max-width: 80%;
+  max-height: 240px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.modal__title {
+  margin: 10px 0 20px 0;
+}
+
+.btn--modal {
+  color: black;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: center;
+}
+.modal__action {
+  display: flex;
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.modal__order input {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 10px auto;
+  width: 200px;
+  border-radius: 5px;
+  height: 25px;
+}
+input,
+label {
+  display: block;
+}
+
+.modal__order label {
+  margin-left: 85px;
+}

@@ -1,0 +1,34 @@
+.order__card {
+  display: flex;
+  margin: 100px 0;
+  background-color: rgb(240, 194, 69);
+  padding: 10px;
+  flex-direction: column;
+}
+
+.order__info__card img {
+  width: 200px;
+  height: auto;
+  flex: 1 1 50%;
+  margin: 10px 0;
+}
+.order__info__card p {
+  margin: 5px 0;
+}
+.order__info__card {
+  display: flex;
+}
+.order__info--elem {
+  display: flex;
+}
+.order__text {
+  margin: 20px 20px 10px 20px;
+}
+
+.order__info__contact {
+  margin: 20px 20px 10px 20px;
+}
+
+.order__card p {
+  font-size: 17px;
+}

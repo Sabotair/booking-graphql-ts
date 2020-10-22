@@ -1,0 +1,413 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+} */
+/*--------------------*/
+
+body {
+  background-color: #ffffff;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  height: 0;
+}
+
+/* CONTAINER
+======================== */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* HEADER 
+=============== */
+
+.header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #515369;
+  background-color: darkorange;
+  max-height: 70px;
+}
+
+.header__logo img {
+  margin-left: 20px;
+  max-width: 100px;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav__link {
+  /* margin-left: 50px; */
+  text-decoration: none;
+  opacity: 0.75;
+  margin: 0 15px 0 40px;
+
+  transition: opacity 0.1s linear;
+}
+.nav__link a {
+  color: black;
+}
+
+.nav__link:first-child {
+  margin: 0;
+}
+
+.nav__link a:hover {
+  opacity: 1;
+  color: #ffffff;
+  transition: color 0.2s linear;
+}
+
+/* Button
+ ==================== */
+
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 13px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 0;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.1s linear;
+  text-align: center;
+  padding: 10px;
+}
+
+.btn--succes {
+  color: black;
+  background-color: chartreuse;
+  border-radius: 10px;
+}
+
+.btn--red {
+  color: black;
+  background-color: lightcoral;
+  border-radius: 10px;
+}
+.btn--yellow {
+  color: black;
+  background-color: #dbdb15;
+  border-radius: 10px;
+}
+
+/* SELECTS 
+=================================*/
+
+.select__inner {
+  margin: 100px 0 50px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.select__item {
+  width: 200px;
+}
+
+/*  CARD
+====================== */
+
+.card__container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.card__item {
+  display: flex;
+  background-color: wheat;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  position: relative;
+}
+.card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__rooms {
+  font-weight: 600;
+  text-decoration: solid;
+  margin: 0 0 10px 10px;
+}
+
+.card__logo img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card__title {
+  margin: 15px 0 10px 10px;
+}
+
+.card__cost {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.card__description {
+  margin: 0 10px 10px 10px;
+  line-height: 17px;
+  overflow: hidden;
+}
+.card__interval {
+  font-weight: 600;
+  text-decoration: solid;
+  margin: 0 0 10px 10px;
+  position: absolute;
+  top: 46px;
+  right: 10px;
+}
+
+.card__quantity {
+  font-weight: 600;
+  text-decoration: solid;
+  margin: 0 0 10px 10px;
+}
+.card__bottons {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  margin: 5px 0 0 0;
+}
+.card__bottons button {
+  margin: 0 10px 0 0;
+}
+
+/* Footer  
+===================== */
+.footer {
+  background-color: darkorange;
+
+  width: 100%;
+}
+
+.footer__text {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 570px) {
+  .card__item {
+    flex-wrap: wrap;
+  }
+  .card__logo img {
+    width: 100%;
+  }
+  .select__inner {
+    flex-direction: column;
+  }
+}
+
+/* Registration 
+================================ */
+
+.registration__block {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  background-color: darkkhaki;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.registration__block h1 {
+  margin-bottom: 10px;
+}
+.registration__block p {
+  margin-bottom: 10px;
+}
+
+/* Add padding to containers */
+.registration__container {
+  padding: 16px;
+  margin-top: 80px;
+}
+
+/* Full-width input fields */
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #269e2a;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 20px;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+  max-width: 400px;
+}
+
+/* Login 
+============================ */
+
+.login__creator {
+  position: absolute;
+  top: 200px;
+  left: 35%;
+}
+
+.login {
+  overflow: hidden;
+  background-color: tan;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 400px;
+}
+.login input {
+  border-radius: 15px;
+}
+
+.login button {
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 80px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 5px;
+  background-color: mediumseagreen;
+}

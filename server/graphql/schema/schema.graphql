@@ -1,0 +1,118 @@
+type User {
+  _id: ID!
+  email: String!
+  password: String!
+  apartments: [Apartment!]
+  vouchers: [Voucher!]
+}
+
+type Apartment {
+  _id: ID!
+  title: String!
+  description: String!
+  rooms: Float!
+  cost: Float!
+  img: String!
+  interval: Float!
+  attachment: User!
+  ordered: Orders!
+}
+type Orders {
+  _id: ID!
+  email: String!
+  fullName: String!
+  apartments: [Apartment!]
+  vouchers: [Voucher!]
+}
+
+type AuthData {
+  userId: ID!
+  token: String!
+  tokenExpiration: Int!
+}
+
+type Voucher {
+  _id: ID!
+  title: String!
+  description: String!
+  cost: Float!
+  variant: String!
+  quantity: Float!
+  img: String!
+  attachment: User!
+}
+
+input UserInput {
+  email: String!
+  password: String!
+}
+
+input OrdersInput {
+  email: String!
+  fullName: String!
+  apartments: String
+  vouchers: String
+}
+
+input ApartmentInput {
+  title: String!
+  description: String!
+  cost: Float!
+  img: String!
+  rooms: Float!
+  interval: Float!
+  attachment: String!
+}
+input UpdateApartment {
+  title: String!
+  description: String!
+  cost: Float!
+  img: String!
+  rooms: Float!
+}
+input UpdateVoucher {
+  title: String!
+  description: String!
+  cost: Float!
+  img: String!
+  variant: String!
+}
+input VoucherInput {
+  title: String!
+  description: String!
+  cost: Float!
+  variant: String!
+  img: String!
+  quantity: Float!
+  attachment: String!
+}
+
+type RootQuery {
+  apartments: [Apartment]!
+  vouchers: [Voucher]!
+  users: [User]!
+  login(email: String!, password: String!): AuthData
+  getApartment(id: ID!): Apartment!
+  getVoucher(id: ID!): Voucher!
+  getOrders: [Orders]!
+  lowCostApartment: [Apartment]!
+  higherCostApartment: [Apartment]!
+  lowCostVoucher: [Voucher]!
+  higherCostVoucher: [Voucher]!
+}
+
+type RootMutation {
+  createUser(inputUser: UserInput!): User!
+  createApartments(inputApartment: ApartmentInput!): Apartment!
+  createVoucher(inputVoucher: VoucherInput!): Voucher!
+  deleteApartment(id: ID!, userId: String): Apartment!
+  deleteVoucher(id: ID!, userId: String): Voucher!
+  updateApartment(id: ID!, updateApartment: UpdateApartment): Apartment!
+  updateVoucher(id: ID!, updateVoucher: UpdateVoucher): Voucher!
+  addOrder(id: ID!, inputOrder: OrdersInput): Orders!
+}
+
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
