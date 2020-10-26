@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost'
 
-export const SORT_LOW_COST = gql`
+export const SORT_INTERVAL_DAY = gql`
   query {
-    lowCostApartment {
+    lowInterval {
       _id
       title
       description
@@ -11,13 +11,13 @@ export const SORT_LOW_COST = gql`
       interval
       cost
     }
-    lowCostVoucher {
+    higherInterval {
       _id
       title
       description
-      variant
+      rooms
       img
-      quantity
+      interval
       cost
     }
   }

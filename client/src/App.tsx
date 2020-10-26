@@ -13,6 +13,8 @@ import OrderList from './pages/OrderList'
 import EditApartmentCard from './pages/EditApartment'
 import EditVoucher from './pages/EditVoucher'
 import FilterCardPage from './pages/FilterPages/FilterCardPage'
+import FilterCost from './pages/FilterPages/FilterCost'
+import FilterIntervalDays from './pages/FilterPages/FilterIntervalDays'
 
 const App: React.FC = () => {
   const token = useSelector<RootState>((state) => {
@@ -38,7 +40,9 @@ const App: React.FC = () => {
         <Route component={OrderList} path="/order" />
         <Route component={EditApartmentCard} path="/apartment/:id" exact />
         <Route component={EditVoucher} path="/voucher/:id" exact />
-        <Route component={FilterCardPage} path="/filter" exact />
+        <Route component={FilterCardPage} path="/category" exact />
+        <Route component={FilterCost} path="/cost" exact />
+        <Route component={FilterIntervalDays} path="/interval" exact />
         <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>

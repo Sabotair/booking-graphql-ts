@@ -7,6 +7,9 @@ import { RootState } from '../../store/reducers'
 import { CREATE_VOUCHER } from '../../graphql/voucher/CreateVoucher'
 import { GET_APARTMENTS } from '../../graphql/apartment/GetApartments'
 import { GET_VOUCHERS } from '../../graphql/voucher/GetVouchers'
+import { SORT_INTERVAL_DAY } from '../../graphql/filters/SortIntervalDay'
+import { SORT_LOW_COST } from '../../graphql/filters/SortLowCostCard'
+import { SORT_HIGHT_COST } from '../../graphql/filters/SortHigthCostCard'
 
 interface IApartment {
   id: number
@@ -65,23 +68,35 @@ const Apartment: React.FC = () => {
   const [saveApartment, { error }] = useMutation<
     { createApartments: IApartment },
     INewApartment
-  >(CREATE_APARTMENT, { refetchQueries: [{ query: GET_APARTMENTS }] })
+  >(CREATE_APARTMENT, {
+    refetchQueries: [
+      { query: GET_APARTMENTS },
+      { query: SORT_INTERVAL_DAY },
+      { query: SORT_LOW_COST },
+      { query: SORT_HIGHT_COST },
+    ],
+  })
 
   const [saveVoucher] = useMutation<{ createVoucher: IVoucher }, INewVoucher>(
     CREATE_VOUCHER,
     {
-      refetchQueries: [{ query: GET_VOUCHERS }],
+      refetchQueries: [
+        { query: GET_VOUCHERS },
+        { query: SORT_INTERVAL_DAY },
+        { query: SORT_LOW_COST },
+        { query: SORT_HIGHT_COST },
+      ],
     }
   )
   const defaultValue = (): void => {
     setTitle('')
     setDescription('')
-    setRooms(0)
-    setCost(0)
+    setRooms(Number)
+    setCost(Number)
     setImage('')
     setVariant('')
-    setInterval(0)
-    setQuantity(0)
+    setInterval(Number)
+    setQuantity(Number)
   }
 
   const createCard = (e: React.FormEvent<HTMLFormElement>): void => {
@@ -134,6 +149,7 @@ const Apartment: React.FC = () => {
           type="text"
           id="title"
           name="title"
+          required
           value={title}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setTitle(e.target.value)
@@ -146,6 +162,7 @@ const Apartment: React.FC = () => {
           className="form__input"
           type="text"
           id="price"
+          required
           name="price"
           value={cost}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -161,6 +178,7 @@ const Apartment: React.FC = () => {
               className="form__input"
               type="text"
               id="room"
+              required
               name="room"
               value={rooms}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -174,6 +192,7 @@ const Apartment: React.FC = () => {
               className="form__input"
               type="text"
               id="interval"
+              required
               name="interval"
               value={interval}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -190,6 +209,7 @@ const Apartment: React.FC = () => {
               className="form__select"
               id="variant"
               value={variant}
+              required
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                 setVariant(e.target.value)
               }
@@ -209,6 +229,7 @@ const Apartment: React.FC = () => {
               type="text"
               id="Quantity"
               name="Quantity"
+              required
               value={quantity}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setQuantity(+e.target.value)
@@ -224,6 +245,7 @@ const Apartment: React.FC = () => {
           type="text"
           id="descriptions"
           name="descriptions"
+          required
           value={description}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setDescription(e.target.value)
@@ -238,6 +260,7 @@ const Apartment: React.FC = () => {
           type="text"
           id="img"
           name="img"
+          required
           value={img}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setImage(e.target.value)

@@ -99,6 +99,8 @@ type RootQuery {
   higherCostApartment: [Apartment]!
   lowCostVoucher: [Voucher]!
   higherCostVoucher: [Voucher]!
+  lowInterval: [Apartment]!
+  higherInterval: [Apartment]!
 }
 
 type RootMutation {

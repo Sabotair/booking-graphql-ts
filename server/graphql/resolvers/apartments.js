@@ -16,6 +16,14 @@ module.exports = {
     const highCost = await Apartment.find({}).sort({ cost: -1 })
     return highCost
   },
+  lowInterval: async () => {
+    const lowInterval = await Apartment.find({}).sort({ interval: 1 })
+    return lowInterval
+  },
+  higherInterval: async () => {
+    const hightInterval = await Apartment.find({}).sort({ interval: -1 })
+    return hightInterval
+  },
   updateApartment: async (args) => {
     const { title, description, cost, rooms, img } = args.updateApartment
     const apartment = await Apartment.findByIdAndUpdate(

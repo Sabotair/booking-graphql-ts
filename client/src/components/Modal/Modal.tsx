@@ -8,6 +8,9 @@ import { DELETE_APARTMENT } from '../../graphql/deleteCard/DeleteApartment'
 import { DELETE_VOUCHER } from '../../graphql/deleteCard/DeleteVoucher'
 import { GET_VOUCHERS } from '../../graphql/voucher/GetVouchers'
 import { GET_APARTMENTS } from '../../graphql/apartment/GetApartments'
+import { SORT_INTERVAL_DAY } from '../../graphql/filters/SortIntervalDay'
+import { SORT_LOW_COST } from '../../graphql/filters/SortLowCostCard'
+import { SORT_HIGHT_COST } from '../../graphql/filters/SortHigthCostCard'
 
 interface IProps {
   apartment?: Apartments
@@ -24,7 +27,12 @@ interface IData {
 const Modal: React.FC<IProps> = ({ apartment, showModalWindow, voucher }) => {
   const token = useSelector<RootState>((state) => state.auth.token)
   const [deleteApartment] = useMutation<IData, IDelete>(DELETE_APARTMENT, {
-    refetchQueries: [{ query: GET_APARTMENTS }],
+    refetchQueries: [
+      { query: GET_APARTMENTS },
+      { query: SORT_INTERVAL_DAY },
+      { query: SORT_LOW_COST },
+      { query: SORT_HIGHT_COST },
+    ],
   })
   const [deleteVoucher] = useMutation<IData, IDelete>(DELETE_VOUCHER, {
     refetchQueries: [{ query: GET_VOUCHERS }],
@@ -42,7 +50,9 @@ const Modal: React.FC<IProps> = ({ apartment, showModalWindow, voucher }) => {
     e: React.MouseEvent<HTMLElement>,
     id: string
   ): void => {
-    deleteVoucher({ variables: { id, userId: String(userId) } })
+    deleteVoucher({
+      variables: { id, userId: String(userId) },
+    })
     showModalWindow()
   }
 

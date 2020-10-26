@@ -16,8 +16,8 @@ interface AuthLoginData {
 }
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>('test@gmail.com')
-  const [password, setPassword] = useState<string>('111111')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
   const dispatch = useDispatch()
   const [checkUser, { data }] = useLazyQuery<

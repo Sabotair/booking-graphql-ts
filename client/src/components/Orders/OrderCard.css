@@ -17,6 +17,7 @@
 }
 .order__info__card {
   display: flex;
+  border-bottom: solid azure;
 }
 .order__info--elem {
   display: flex;

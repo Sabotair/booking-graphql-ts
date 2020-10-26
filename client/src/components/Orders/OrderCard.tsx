@@ -21,47 +21,50 @@ const OrderCard: React.FC<IProp> = ({ apartment }) => {
         {apartment?.map((item) => (
           <div key={item.email + item.email}>
             {item.apartments.map((elem) => (
-              <li
-                className="order__info__card"
-                key={elem.cost + elem.description}
-              >
-                <div className="order__info--elem">
-                  <div className="order___image">
-                    <img src={elem.img} alt="" />
-                  </div>
-                  <div className="order__text">
-                    <h3>Apartment:</h3>
-                    <p>
-                      <b> Title:</b> {elem.title}
-                    </p>
-                    <p>
-                      <b>Description:</b> {elem.description}
-                    </p>
-                    <p>
-                      <b>Rooms:</b> {elem.rooms}
-                    </p>
-                    <p>
-                      <b>Cost:</b> {elem.cost}
-                    </p>
-                    <p>
-                      <b>Interval:</b> {elem.interval} day
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="order__info__contact"
+              <>
+                <li
+                  className="order__info__card"
                   key={elem.cost + elem.description}
                 >
-                  <h3>Client contact</h3>
-                  <p>
-                    <b>Email:</b> {item.email}
-                  </p>
-                  <p>
-                    <b>Full name:</b> {item.fullName}
-                  </p>
-                </div>
-              </li>
+                  <div className="order__info--elem">
+                    <div className="order___image">
+                      <img src={elem.img} alt="" />
+                    </div>
+                    <div className="order__text">
+                      <h3>Apartment:</h3>
+                      <p>
+                        <b> Title:</b> {elem.title}
+                      </p>
+                      <p>
+                        <b>Description:</b> {elem.description}
+                      </p>
+                      <p>
+                        <b>Rooms:</b> {elem.rooms}
+                      </p>
+                      <p>
+                        <b>Cost:</b> {elem.cost}
+                      </p>
+                      <p>
+                        <b>Interval:</b> {elem.interval} day
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className="order__info__contact"
+                    key={elem.cost + elem.description}
+                  >
+                    <h3>Client contact</h3>
+                    <p>
+                      <b>Email:</b> {item.email}
+                    </p>
+                    <p>
+                      <b>Full name:</b> {item.fullName}
+                    </p>
+                  </div>
+                </li>
+                <hr />
+              </>
             ))}
 
             {item.vouchers.map((elem) => (
@@ -107,7 +110,6 @@ const OrderCard: React.FC<IProp> = ({ apartment }) => {
                 </div>
               </li>
             ))}
-            <hr />
           </div>
         ))}
       </ul>
