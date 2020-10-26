@@ -1,6 +1,5 @@
 import { useLazyQuery } from '@apollo/react-hooks'
 import React, { useEffect, useState } from 'react'
-// import { Redirect } from 'react-router-dom'
 import { LOGIN_USER } from '../graphql/Auth/LoginUser'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../store/auth/action'
