@@ -4,18 +4,20 @@ const bodyParser = require('body-parser')
 const { graphqlHTTP } = require('express-graphql')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const path = require('path')
 
 const { buildSchema } = require('graphql')
 const { readFileSync } = require('fs')
 const qraphQlResolvers = require('./graphql/resolvers/index')
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 const schemaString = readFileSync('./graphql/schema/schema.graphql', {
   encoding: 'utf-8',
 })
 const schema = buildSchema(schemaString)
 
+app.use(express.static(path.join(__dirname, '/client/build')))
 app.use(cors())
 app.use(bodyParser.json())
 
