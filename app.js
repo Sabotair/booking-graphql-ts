@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const path = require('path')
 
-const { buildSchema } = require('graphql')
+const { buildSchema, __Directive } = require('graphql')
 const { readFileSync } = require('fs')
 const qraphQlResolvers = require('./graphql/resolvers/index')
 
@@ -17,7 +17,6 @@ const schemaString = readFileSync('./graphql/schema/schema.graphql', {
 })
 const schema = buildSchema(schemaString)
 
-app.use(express.static(path.join(__dirname, '/client/build')))
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -47,3 +46,10 @@ mongoose
   .catch((err) => {
     console.log(err)
   })
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/client/build')))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/build/index.html'))
+  })
+}
